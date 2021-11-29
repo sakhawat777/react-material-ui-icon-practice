@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [likeColor, setLikeColor] = useState('');
+    // Icon Toggle Method
+    const handleLike = () => {
+      const color = likeColor? '' : 'primary';
+      setLikeColor(color)
+    }
+	return (
+		<div style={{margin: '100px', }}>
+			<ThumbUpIcon onClick={handleLike} color={likeColor}></ThumbUpIcon>
+      
+		</div>
+	);
 }
 
 export default App;
